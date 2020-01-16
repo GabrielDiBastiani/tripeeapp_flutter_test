@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:login_screen_1/util/constants.dart';
+// import 'package:login_screen_1/screens/map_search.dart';
 import 'package:login_screen_1/screens/map_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -181,52 +182,52 @@ class _LoginScreenState extends State<LoginScreen> {
 		);
 	}
 
-	Widget _buildSocialBtn(Function onTap, AssetImage logo) {
-		return GestureDetector(
-			onTap: onTap,
-			child: Container(
-				height: 60.0,
-				width: 60.0,
-				decoration: BoxDecoration(
-					shape: BoxShape.circle,
-					color: Colors.white,
-					boxShadow: [
-						BoxShadow(
-							color: Colors.black26,
-							offset: Offset(0, 2),
-							blurRadius: 6.0,
-						),
-					],
-					image: DecorationImage(
-						image: logo,
-					),
-				),
-			),
-		);
-	}
+	// Widget _buildSocialBtn(Function onTap, AssetImage logo) {
+	// 	return GestureDetector(
+	// 		onTap: onTap,
+	// 		child: Container(
+	// 			height: 60.0,
+	// 			width: 60.0,
+	// 			decoration: BoxDecoration(
+	// 				shape: BoxShape.circle,
+	// 				color: Colors.white,
+	// 				boxShadow: [
+	// 					BoxShadow(
+	// 						color: Colors.black26,
+	// 						offset: Offset(0, 2),
+	// 						blurRadius: 6.0,
+	// 					),
+	// 				],
+	// 				image: DecorationImage(
+	// 					image: logo,
+	// 				),
+	// 			),
+	// 		),
+	// 	);
+	// }
 
-	Widget _buildSocialBtnRow() {
-		return Padding(
-			padding: EdgeInsets.symmetric(vertical: 30.0),
-			child: Row(
-				mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-				children: <Widget>[
-					_buildSocialBtn(
-						() => print('Login with Facebook'),
-						AssetImage(
-							'assets/logos/facebook.jpg',
-						),
-					),
-					_buildSocialBtn(
-						() => print('Login with Google'),
-						AssetImage(
-							'assets/logos/google.jpg',
-						),
-					),
-				],
-			),
-		);
-	}
+	// Widget _buildSocialBtnRow() {
+	// 	return Padding(
+	// 		padding: EdgeInsets.symmetric(vertical: 30.0),
+	// 		child: Row(
+	// 			mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+	// 			children: <Widget>[
+	// 				_buildSocialBtn(
+	// 					() => print('Login with Facebook'),
+	// 					AssetImage(
+	// 						'assets/logos/facebook.jpg',
+	// 					),
+	// 				),
+	// 				_buildSocialBtn(
+	// 					() => print('Login with Google'),
+	// 					AssetImage(
+	// 						'assets/logos/google.jpg',
+	// 					),
+	// 				),
+	// 			],
+	// 		),
+	// 	);
+	// }
 
 	Widget _buildSignupBtn() {
 		return GestureDetector(

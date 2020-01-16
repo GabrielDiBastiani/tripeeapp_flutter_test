@@ -135,9 +135,11 @@ void _currentLocation() async {
 	Widget build(BuildContext context) {
 		return MaterialApp(
 			home: Scaffold(
+				extendBodyBehindAppBar: true,
 				appBar: AppBar(
-					title: Text('Tripee'),
-					backgroundColor: Colors.black,      
+					backgroundColor: Colors.transparent, 
+          elevation: 0.0, 
+          iconTheme: new IconThemeData(color: Colors.black),    
 				),
 				drawer: new Drawer(),
 				body: _initialPosition == null
@@ -152,17 +154,62 @@ void _currentLocation() async {
               ),
             ),
           ) 
-        : GoogleMap(
-            mapType: MapType.normal,
-            // markers: _createMarker(),
-            initialCameraPosition: CameraPosition(
-              target: _initialPosition,
-              zoom: 17.0,
-            ),
-            onMapCreated: _onMapCreated,
-            myLocationEnabled: true,
-            myLocationButtonEnabled: false,
-              // _setStyle(controller);
+        : Stack(
+            children: <Widget>[
+              GoogleMap(
+                mapType: MapType.normal,
+                // markers: _createMarker(),
+                initialCameraPosition: CameraPosition(
+                  target: _initialPosition,
+                  zoom: 17.0,
+                ),
+                onMapCreated: _onMapCreated,
+                myLocationEnabled: true,
+                myLocationButtonEnabled: false,
+                compassEnabled: true,
+                  // _setStyle(controller);
+              ),
+              Positioned(
+                top: 105.0,
+                right: 15.0,
+                left: 15.0,
+                child: Container(
+                  alignment: Alignment.topCenter,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0xFF2e2e2e),
+                        blurRadius: 6.0,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  height: 50.0,
+                  child: TextField(
+                    keyboardType: TextInputType.text,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'OpenSans',
+                    ),
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.only(top: 14.0),
+                      prefixIcon: Icon(
+                        Icons.local_taxi,
+                        color: Colors.black,
+                      ),
+                      hintText: 'Qual seu destino?',
+                      hintStyle: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'OpenSans',
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: _currentLocation,
