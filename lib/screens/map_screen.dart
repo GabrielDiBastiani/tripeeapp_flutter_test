@@ -137,9 +137,9 @@ void _currentLocation() async {
 			home: Scaffold(
 				extendBodyBehindAppBar: true,
 				appBar: AppBar(
-					backgroundColor: Colors.transparent, 
-          elevation: 0.0, 
-          iconTheme: new IconThemeData(color: Colors.black),    
+              backgroundColor: Colors.transparent,
+              elevation: 0.0,
+              iconTheme: new IconThemeData(color: Colors.black),
 				),
 				drawer: new Drawer(),
 				body: _initialPosition == null
